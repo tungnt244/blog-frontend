@@ -1,0 +1,1 @@
+export const GET_LIST_ARTICALS_AT_PAGE = "http://localhost:8080/api/articles/page"
