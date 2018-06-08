@@ -1,28 +1,33 @@
 import React from 'react';
-import {Input, Menu} from 'semantic-ui-react';
+import { Menu} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
 export default class MenuBar extends React.Component{
     
-    constructor(props){
-        super(props)
-        this.state={
-            activeBar:"home"
-        }
-    }
-
-    onClickHandle=(e, {name})=>{
-        this.setState({
-            activeBar: name
-        })
-    }
-
     render(){
         return(
-            <Menu>
-                <Menu.Item as={Link} to="/home" name="home" active={this.state.activeBar === "home"} onClick={this.onClickHandle}/>
-                <Menu.Item as={Link} to="/blog" name="blog" active={this.state.activeBar === "blog"} onClick={this.onClickHandle}/>
-            </Menu>
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+                <div className="container">
+                    <Link className="navbar-brand" to="/home">Tungnt</Link>
+                    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i className="fa fa-bars"></i>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarResponsive">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                        <Link className="navbar-link" to="/home">Home</Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link className="navbar-link" to="/about">About</Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link className="navbar-link" to="/contact">Contact</Link>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
         )
     }
 }
